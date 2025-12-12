@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// Renomeei 'provedor-de-theme' para 'theme-provider' na sugestão,
+// mas vou manter o nome original do seu arquivo para a correção
+import { ThemeProvider } from "@/components/provedor-de-theme";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/app-side-bar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem disableTransitionOnChange>
+            <AppSidebar />
+            <SidebarTrigger />
+            {children}
+          </ThemeProvider>
+        </SidebarProvider>
       </body>
     </html>
   );
