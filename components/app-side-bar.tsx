@@ -3,33 +3,34 @@
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { Box, Calendar, Home, Search, Settings, UserRound } from "lucide-react";
 import { ModeToggle } from "./button-theme";
+import Link from "next/link";
 
 export default function AppSidebar() {
 
     const items = [
         {
             title: "Home",
-            url: "#",
+            url: "/",
             icon: Home,
         },
         {
             title: "Users",
-            url: "#",
+            url: "/user",
             icon: UserRound,
         },
         {
             title: "Products",
-            url: "#",
+            url: "/product",
             icon: Box,
         },
         {
             title: "Search",
-            url: "#",
+            url: "/",
             icon: Search,
         },
         {
             title: "Settings",
-            url: "#",
+            url: "/",
             icon: Settings,
         },
     ]
@@ -49,10 +50,10 @@ export default function AppSidebar() {
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <a href={item.url}>
+                                        <Link href={item.url}>
                                             <item.icon />
                                             <span>{item.title}</span>
-                                        </a>
+                                        </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                             ))}
