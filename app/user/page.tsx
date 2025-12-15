@@ -23,11 +23,11 @@ export default async function page() {
 
     return (
         <div className="w-screen h-screen flex items-center justify-center container mx-auto py-10">
-            <Card className="w-300 h-150 p-5">
+            <Card className="w-300 h-150 p-5 ">
                 <CardHeader className="w-full bg-secondary flex justify-between items-center h-20">
                     <div className="w-1/2 flex justify-between ">
-                        <Input className="w-125 bg-primary-foreground"/>
-                        <Button className="cursor-pointer dark:text-white"><SearchIcon/></Button>
+                        <Input className="w-125 bg-primary-foreground" placeholder="Pesquise por algum usuário"/>
+                        <Button className="cursor-pointer dark:text-white"><SearchIcon /></Button>
                     </div>
                     <div className="flex justify-between w-65">
                         <Button className="cursor-pointer w-30 bg-chart-2 dark:text-white">Cadastrar</Button>
